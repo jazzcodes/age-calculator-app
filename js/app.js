@@ -170,7 +170,7 @@ btn.addEventListener("click", function()
         
 
 
-        if(year.value>date.getYear())
+        if(dob.getYear()>date.getYear())
         {
             errorY.innerText="Ruko Zra Sabr Kro ✋";
             errorY.classList.add("alert-empty");
@@ -484,7 +484,7 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
     }
 
 
-    if(year.value>date.getYear())
+    if(dob.getYear()>date.getYear())
     {
         yearP.innerText="--";
         dayP.innerText="--";
@@ -495,7 +495,7 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
         
     }
 
-    if(day.value>date.getDate()&&month.value>date.getMonth()&&year.value>date.getYear())
+    if(dob.getDate()>date.getDate()&&dob.getMonth()>date.getMonth()&&dob.getYear()>date.getYear())
     {
         errorY.innerText="Ruko Zra Sabr Kro ✋";
         errorY.classList.add("alert-empty");
