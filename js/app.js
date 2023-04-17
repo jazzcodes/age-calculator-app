@@ -20,11 +20,20 @@ const dayR=document.querySelector("#r-days");
 const monthR=document.querySelector("#r-months");
 const yearR=document.querySelector("#r-years");
 
+
+
 btn.addEventListener("click", function()
 {
     console.log(day.value);
     console.log(month.value);
     console.log(year.value);
+    console.log(day.value.length);
+   
+    const date= new Date();
+    const dob=new Date(year.value, month.value-1, day.value);
+
+
+
 
     if(day.value=='')
     {
@@ -44,13 +53,23 @@ btn.addEventListener("click", function()
 
    
     }
+    else if(day.value.length<2)
+    {
+     errorD.innerText="Enter as per the format";
+     errorD.classList.add("alert-empty");
+     input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+ 
+     label.forEach(Element=>Element.style.color="var(--light-red)");
+ 
+ 
+    }
     else{
         errorD.innerText="";
         
         errorD.classList.remove("alert-empty");
         labelD.style.color="var(--smokey-grey)";
         day.style.borderColor="var(--light-grey)";
-        if(day.value<1 || day.value>31)
+    if(day.value<1 || day.value>31)
         {
             errorD.innerText="Must be a valid day";
             errorD.classList.add("alert-empty");
@@ -81,6 +100,14 @@ btn.addEventListener("click", function()
         // labelY.style.color="var(--light-red)";
         input.forEach(Element=>Element.style.borderColor="var(--light-red)");
 
+        label.forEach(Element=>Element.style.color="var(--light-red)");
+    }
+    else if(month.value.length<2)
+    {
+        errorM.innerText="Enter as per the format";
+        errorM.classList.add("alert-empty");
+        input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+    
         label.forEach(Element=>Element.style.color="var(--light-red)");
     }
     else{
@@ -123,6 +150,16 @@ btn.addEventListener("click", function()
 
         label.forEach(Element=>Element.style.color="var(--light-red)");
     }
+    else if(year.value.length<4)
+    {
+        errorY.innerText="Enter as per the format";
+        errorY.classList.add("alert-empty");
+        input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+    
+        label.forEach(Element=>Element.style.color="var(--light-red)");
+
+    }
+
 
     else{
         errorY.innerText="";
@@ -130,10 +167,17 @@ btn.addEventListener("click", function()
         errorY.classList.remove("alert-empty");
         labelY.style.color="var(--smokey-grey)";
         year.style.borderColor="var(--light-grey)";
-        if(year.value>2023)
+        
+
+
+        if(year.value>date.getYear())
         {
-            errorY.innerText="Must be in the past";
+            errorY.innerText="Ruko Zra Sabr Kro ✋";
             errorY.classList.add("alert-empty");
+            errorD.innerText="Ruko Zra Sabr Kro ✋";
+            errorD.classList.add("alert-empty");
+            errorM.innerText="Ruko Zra Sabr Kro ✋";
+            errorM.classList.add("alert-empty");
             // labelY.style.color="var(--light-red)";
             // year.style.borderColor="var(--light-red)";
             // month.style.borderColor="var(--light-red)";
@@ -188,8 +232,8 @@ btn.addEventListener("click", function()
 
 
 
-    const date= new Date();
-    const dob=new Date(year.value, month.value-1, day.value);
+
+
     console.log(dob);
     console.log(date);
     console.log(dob.getMonth());
@@ -299,8 +343,22 @@ btn.addEventListener("click", function()
 
     }
 
+    if(date.getDate()<dob.getDate())
+    {
+
+        yearP.innerText="--";
+        dayP.innerText="--";
+        monthP.innerText="--";
+        dayR.innerText="days";
+        monthR.innerText="months";
+        yearR.innerText="years";
+    }
+
 
 }
+
+
+
 if(day.value===""||month.value===""||year.value==="")
 {
     yearP.innerText="--";
@@ -409,6 +467,50 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
         monthR.innerText="months";
         yearR.innerText="years";
 
+    }
+
+    if(day.value.length<2||month.value.length<2||year.value.length<4)
+    {
+        // errorY.innerText="R";
+        // errorY.classList.add("alert-empty");
+        // input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+        // label.forEach(Element=>Element.style.color="var(--light-red)");
+        yearP.innerText="--";
+        dayP.innerText="--";
+        monthP.innerText="--";
+        dayR.innerText="days";
+        monthR.innerText="months";
+        yearR.innerText="years";
+    }
+
+
+    if(year.value>date.getYear())
+    {
+        yearP.innerText="--";
+        dayP.innerText="--";
+        monthP.innerText="--";
+        dayR.innerText="days";
+        monthR.innerText="months";
+        yearR.innerText="years";
+        
+    }
+
+    if(day.value>date.getDate()&&month.value>date.getMonth()&&year.value>date.getYear())
+    {
+        errorY.innerText="Ruko Zra Sabr Kro ✋";
+        errorY.classList.add("alert-empty");
+        errorD.innerText="Ruko Zra Sabr Kro ✋";
+        errorD.classList.add("alert-empty");
+        errorM.innerText="Ruko Zra Sabr Kro ✋";
+        errorM.classList.add("alert-empty");
+        input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+        label.forEach(Element=>Element.style.color="var(--light-red)");
+        yearP.innerText="--";
+        dayP.innerText="--";
+        monthP.innerText="--";
+        dayR.innerText="days";
+        monthR.innerText="months";
+        yearR.innerText="years";
     }
 
 
