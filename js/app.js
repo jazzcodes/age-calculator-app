@@ -396,6 +396,16 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
         monthR.innerText="months";
         yearR.innerText="years";
     }
+
+    if(year.value<1000){
+        yearP.innerText="--";
+        dayP.innerText="--";
+        monthP.innerText="--";
+        dayR.innerText="days";
+        monthR.innerText="months";
+        yearR.innerText="years";
+
+    }
 } );
 
 input.forEach(
