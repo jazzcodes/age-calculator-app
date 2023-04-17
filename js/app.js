@@ -31,25 +31,18 @@ btn.addEventListener("click", function()
    
     const date= new Date();
     const dob=new Date(year.value, month.value-1, day.value);
+    
 
 
 
 
     if(day.value=='')
     {
-        // console.log("This field is required");
+       
         errorD.innerText="This field is required";
-        
         errorD.classList.add("alert-empty");
-        // labelD.style.color="var(--light-red)";
-        // day.style.borderColor="var(--light-red)";
-        // month.style.borderColor="var(--light-red)";
-        // labelM.style.color="var(--light-red)";
-        // year.style.borderColor="var(--light-red)";
-        // labelY.style.color="var(--light-red)";
-                  input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
-            label.forEach(Element=>Element.style.color="var(--light-red)");
+        input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+        label.forEach(Element=>Element.style.color="var(--light-red)");
 
    
     }
@@ -69,18 +62,12 @@ btn.addEventListener("click", function()
         errorD.classList.remove("alert-empty");
         labelD.style.color="var(--smokey-grey)";
         day.style.borderColor="var(--light-grey)";
+        
     if(day.value<1 || day.value>31)
         {
             errorD.innerText="Must be a valid day";
             errorD.classList.add("alert-empty");
-            // labelD.style.color="var(--light-red)";
-            // day.style.borderColor="var(--light-red)";
-            // month.style.borderColor="var(--light-red)";
-            // labelM.style.color="var(--light-red)";
-            // year.style.borderColor="var(--light-red)";
-            // labelY.style.color="var(--light-red)";
             input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
             label.forEach(Element=>Element.style.color="var(--light-red)");
         }
 
@@ -88,20 +75,13 @@ btn.addEventListener("click", function()
  
     if(month.value=='')
     {
-        // console.log("This field is required");
-        errorM.innerText="This field is required";
         
+        errorM.innerText="This field is required";  
         errorM.classList.add("alert-empty");
-        // labelM.style.color="var(--light-red)";
-        // month.style.borderColor="var(--light-red)";
-        // month.style.borderColor="var(--light-red)";
-        // labelM.style.color="var(--light-red)";
-        // year.style.borderColor="var(--light-red)";
-        // labelY.style.color="var(--light-red)";
         input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
         label.forEach(Element=>Element.style.color="var(--light-red)");
     }
+
     else if(month.value.length<2)
     {
         errorM.innerText="Enter as per the format";
@@ -121,14 +101,7 @@ btn.addEventListener("click", function()
         {
             errorM.innerText="Must be a valid month";
             errorM.classList.add("alert-empty");
-            // labelM.style.color="var(--light-red)";
-            // month.style.borderColor="var(--light-red)";
-            // month.style.borderColor="var(--light-red)";
-            // labelM.style.color="var(--light-red)";
-            // year.style.borderColor="var(--light-red)";
-            // labelY.style.color="var(--light-red)";
             input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
             label.forEach(Element=>Element.style.color="var(--light-red)");
         }
 
@@ -136,20 +109,13 @@ btn.addEventListener("click", function()
 
     if(year.value=='')
     {
-        // console.log("This field is required");
-        errorY.innerText="This field is required";
-        
+   
+        errorY.innerText="This field is required"; 
         errorY.classList.add("alert-empty");
-        // labelY.style.color="var(--light-red)";
-        // year.style.borderColor="var(--light-red)";
-        // month.style.borderColor="var(--light-red)";
-        // labelM.style.color="var(--light-red)";
-        // year.style.borderColor="var(--light-red)";
-        // labelY.style.color="var(--light-red)";
         input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
         label.forEach(Element=>Element.style.color="var(--light-red)");
     }
+
     else if(year.value.length<4)
     {
         errorY.innerText="Enter as per the format";
@@ -161,86 +127,38 @@ btn.addEventListener("click", function()
     }
 
 
+    else if(year.value<1000)
+    {
+        
+        console.log(year.value);
+        errorY.innerText="Enter a valid year";
+        errorY.classList.add("alert-empty");
+        input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+    
+        label.forEach(Element=>Element.style.color="var(--light-red)");
+
+    }
+
+    else if(date.getYear()<dob.getYear())
+    {
+        errorY.innerText="Enter a year in past please!";
+        errorY.classList.add("alert-empty");
+        input.forEach(Element=>Element.style.borderColor="var(--light-red)");
+    
+        label.forEach(Element=>Element.style.color="var(--light-red)");
+
+    }
+
+
+
     else{
         errorY.innerText="";
         
         errorY.classList.remove("alert-empty");
         labelY.style.color="var(--smokey-grey)";
         year.style.borderColor="var(--light-grey)";
-        
-
-
-        if(dob.getYear()>date.getYear())
-        {
-            errorY.innerText="Ruko Zra Sabr Kro ✋";
-            errorY.classList.add("alert-empty");
-            errorD.innerText="Ruko Zra Sabr Kro ✋";
-            errorD.classList.add("alert-empty");
-            errorM.innerText="Ruko Zra Sabr Kro ✋";
-            errorM.classList.add("alert-empty");
-            // labelY.style.color="var(--light-red)";
-            // year.style.borderColor="var(--light-red)";
-            // month.style.borderColor="var(--light-red)";
-            // labelM.style.color="var(--light-red)";
-            // year.style.borderColor="var(--light-red)";
-            // labelY.style.color="var(--light-red)";
-            input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
-            label.forEach(Element=>Element.style.color="var(--light-red)");
-        }
-
     }
-
-    // if(month.value==4||month.value==6||month.value==9||month.value==11)
-    // {
-    //     if(day.value>30)
-    //     {
-    //         errorD.innerText="Must be a valid day (less than 31)";
-    //         errorD.classList.add("alert-empty");
-    //         labelD.style.color="var(--light-red)";
-    //         day.style.borderColor="var(--light-red)";
-    //     }
-    // }
-
-    // if(month.value==2)
-    // {
-
-    //     if(day.value==29 && (year.value)% 4 != 0)
-    //     {
-         
-    //             errorD.innerText="Must be a valid day (Not a leap year)";
-    //             errorD.classList.add("alert-empty");
-    //             labelD.style.color="var(--light-red)";
-    //             day.style.borderColor="var(--light-red)";
-                
-            
-            
-    //     }
-
-    //     if(day.value>29)
-    //     {  
-
-            
-    //         errorD.innerText="Must be a valid day (less than 29)";
-    //         errorD.classList.add("alert-empty");
-    //         labelD.style.color="var(--light-red)";
-    //         day.style.borderColor="var(--light-red)";
-    //     }
-
-       
-    // }
-
-
-
-
-
-    console.log(dob);
-    console.log(date);
-    console.log(dob.getMonth());
-    console.log(date.getMonth());
-    console.log(dob.getDate());
-    console.log(date.getDate());
-
+// leap year
     if((year.value)%4==0)
     {
         if(date.getMonth()<dob.getMonth())
@@ -343,19 +261,10 @@ btn.addEventListener("click", function()
 
     }
 
-    if(date.getDate()<dob.getDate())
-    {
-
-        yearP.innerText="--";
-        dayP.innerText="--";
-        monthP.innerText="--";
-        dayR.innerText="days";
-        monthR.innerText="months";
-        yearR.innerText="years";
-    }
 
 
 }
+
 
 
 
@@ -375,14 +284,7 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
         {
             errorD.innerText="Must be a valid day (less than 31)";
             errorD.classList.add("alert-empty");
-            // labelD.style.color="var(--light-red)";
-            // day.style.borderColor="var(--light-red)";
-            // month.style.borderColor="var(--light-red)";
-            // labelM.style.color="var(--light-red)";
-            // year.style.borderColor="var(--light-red)";
-            // labelY.style.color="var(--light-red)";
             input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
             label.forEach(Element=>Element.style.color="var(--light-red)");
             yearP.innerText="--";
             dayP.innerText="--";
@@ -401,14 +303,7 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
          
                 errorD.innerText="Must be a valid day (Not a leap year)";
                 errorD.classList.add("alert-empty");
-                // labelD.style.color="var(--light-red)";
-                // day.style.borderColor="var(--light-red)";
-                // month.style.borderColor="var(--light-red)";
-                // labelM.style.color="var(--light-red)";
-                // year.style.borderColor="var(--light-red)";
-                // labelY.style.color="var(--light-red)";
                 input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
                 label.forEach(Element=>Element.style.color="var(--light-red)");
                 yearP.innerText="--";
                 dayP.innerText="--";
@@ -426,14 +321,7 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
             
             errorD.innerText="Must be a valid day (less than 29)";
             errorD.classList.add("alert-empty");
-            // labelD.style.color="var(--light-red)";
-            // day.style.borderColor="var(--light-red)";
-            // month.style.borderColor="var(--light-red)";
-            // labelM.style.color="var(--light-red)";
-            // year.style.borderColor="var(--light-red)";
-            // labelY.style.color="var(--light-red)";
             input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-
             label.forEach(Element=>Element.style.color="var(--light-red)");
             yearP.innerText="--";
             dayP.innerText="--";
@@ -471,10 +359,6 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
 
     if(day.value.length<2||month.value.length<2||year.value.length<4)
     {
-        // errorY.innerText="R";
-        // errorY.classList.add("alert-empty");
-        // input.forEach(Element=>Element.style.borderColor="var(--light-red)");
-        // label.forEach(Element=>Element.style.color="var(--light-red)");
         yearP.innerText="--";
         dayP.innerText="--";
         monthP.innerText="--";
@@ -495,14 +379,14 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
         
     }
 
-    if(dob.getDate()>date.getDate()&&dob.getMonth()>date.getMonth()&&dob.getYear()>date.getYear())
+    if(day.value>date.getDate()&&month.value>=date.getMonth()&&year.value>=date.getYear())
     {
-        errorY.innerText="Ruko Zra Sabr Kro ✋";
-        errorY.classList.add("alert-empty");
-        errorD.innerText="Ruko Zra Sabr Kro ✋";
+        errorD.innerText="You're yet to enter this world!";
         errorD.classList.add("alert-empty");
-        errorM.innerText="Ruko Zra Sabr Kro ✋";
+        errorM.innerText="You're yet to enter this world!";
         errorM.classList.add("alert-empty");
+        errorY.innerText="You're yet to enter this world!";
+        errorY.classList.add("alert-empty");
         input.forEach(Element=>Element.style.borderColor="var(--light-red)");
         label.forEach(Element=>Element.style.color="var(--light-red)");
         yearP.innerText="--";
@@ -512,9 +396,6 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
         monthR.innerText="months";
         yearR.innerText="years";
     }
-
-
-  
 } );
 
 input.forEach(
