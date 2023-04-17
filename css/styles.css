@@ -67,7 +67,7 @@ input:hover, input:focus{
 
 }
 
-.purple-btn:hover, .purple-btn:focus{
+.purple-btn:hover, .purple-btn:active{
     background-color: black;
 }
 
@@ -82,6 +82,8 @@ input:hover, input:focus{
 .result{
     display: flex;
     flex-direction: column;
+    margin-top: -4rem;
+    margin-bottom: 3rem;
  
     
 }
