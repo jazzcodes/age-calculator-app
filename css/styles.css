@@ -21,6 +21,7 @@ html{
     justify-content: center;
     align-items: center;
     background-color: var(--off-white);
+    font-family: 'Poppins', sans-serif;
 }
 
 .main-container{
@@ -35,13 +36,39 @@ html{
 
 .date-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    text-transform: uppercase;
+    gap:1rem;
+}
+
+.date-container label{
+    font-weight: 400;
+    color: var(--smokey-grey);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+
 }
 
 input{
-    width: 50px;
-    height: 30px;
+    width: 70px;
+    height: 45px;
+    border-radius: 0.5rem;
+    outline:none;
+    border:0;
+    border: 1px solid var(--light-grey);
+    font-size: 1.8rem;
+    padding: 1rem;   
+}
+
+input:hover, input:focus{
+
+    border-color: var(--purple);
+
+}
+
+.purple-btn:hover, .purple-btn:focus{
+    background-color: black;
 }
 
 
@@ -49,5 +76,135 @@ input{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 0.5rem;
 }
 
+.result{
+    display: flex;
+    flex-direction: column;
+ 
+    
+}
+
+.result p{
+    margin-bottom:-2rem;
+    font-size: 4rem;
+    font-weight: 700;
+    font-style: italic;
+}
+
+#year-purple, #month-purple, #day-purple{
+    color:var(--purple);
+}
+
+hr{
+    margin-top: 6rem;
+    border: 1px solid var(--light-grey);
+    border-top:0;
+}
+
+.purple-btn{
+    background-color: var(--purple);
+    width:60px;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    gap:1rem;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    left:35%;
+    top:-35px;
+}
+
+.arrow-icon{
+    width:60%;
+}
+
+.alert-day, .alert-month, .alert-year, .alert-empty{
+    color: var(--light-red);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top:0rem;
+}
+
+.alert-day{
+
+
+}
+
+.alert-month{
+
+}
+
+.alert-year{
+
+}
+
+.alert-empty{
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+
+@media screen and (min-width:500px)
+{
+.main-container{
+
+    min-width: 500px;
+    min-height:400px ;
+    border-radius: 1.5rem;
+    border-bottom-right-radius: 10rem;
+}
+
+.date-container{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    gap:2rem;
+}
+
+input{
+    width: 90px;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+   
+}
+
+
+.result p{
+    margin-bottom:-6rem;
+    font-size: 6rem;
+    font-weight: 800;
+ 
+}
+
+.result{
+    margin-top: -10rem;
+}
+
+hr{
+    margin-top: 3rem;
+}
+
+.purple-btn{
+    left:90%;
+    top:-35px;
+}
+
+.arrow-icon{
+    width: 70%;
+}
+
+}
