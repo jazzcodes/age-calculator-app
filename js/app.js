@@ -388,7 +388,7 @@ if(month.value==4||month.value==6||month.value==9||month.value==11)
    console.log(date.getYear());
 
 
-    if(day.value>date.getDate()&&month.value>=date.getMonth()&&year.value>=date.getFullYear())
+    if(day.value>date.getDate()&&month.value>date.getMonth()&&dob.getYear()>=date.getYear())
     {
         errorD.innerText="You're yet to enter this world!";
         errorD.classList.add("alert-empty");
